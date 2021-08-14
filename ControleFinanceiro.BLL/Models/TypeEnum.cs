@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ControleFinanceiro.BLL.Models
 {
-    public class Type
+    public class TypeEnum
     {
         public int TypeId { get; set; }
         public string Name { get; set; }
