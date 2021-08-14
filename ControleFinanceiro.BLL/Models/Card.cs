@@ -13,6 +13,6 @@ namespace ControleFinanceiro.BLL.Models
         public double Limit { get; set; }
         public string UserId { get; set; }
         public User User { get; set; }
-        public virtual ICollection<Expense> Expense { get; set; }
+        public virtual ICollection<Expense> Expenses { get; set; }
     }
 }

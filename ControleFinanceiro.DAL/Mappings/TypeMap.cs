@@ -33,7 +33,7 @@ namespace ControleFinanceiro.DAL.Mappings
                  }
                 );
             //nome da tabela
-            builder.ToTable("tb_type");
+            builder.ToTable("Type");
         }
     }
 }
