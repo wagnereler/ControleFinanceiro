@@ -11,7 +11,7 @@ namespace ControleFinanceiro.DAL.Mappings
     {
         public void Configure(EntityTypeBuilder<Month> builder)
         {
-            builder.HasKey(month => month.MonthId);
+            builder.HasKey(pk => pk.MonthId);
             builder.Property(name => name.Name).IsRequired().HasMaxLength(20);
             builder.HasIndex(name => name.Name).IsUnique();
             //relacionamento N x 1

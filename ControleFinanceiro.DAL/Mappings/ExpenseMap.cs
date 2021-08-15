@@ -11,7 +11,7 @@ namespace ControleFinanceiro.DAL.Mappings
     {
         public void Configure(EntityTypeBuilder<Expense> builder)
         {
-            builder.HasKey(expense => expense.ExpenseId);
+            builder.HasKey(pk => pk.ExpenseId);
             builder.Property(description => description.Description).IsRequired().HasMaxLength(50);
             builder.Property(value => value.Value).IsRequired();
             builder.Property(day => day.Day).IsRequired();

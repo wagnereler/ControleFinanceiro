@@ -11,7 +11,7 @@ namespace ControleFinanceiro.DAL.Mappings
     {
         public void Configure(EntityTypeBuilder<Card> builder)
         {
-            builder.HasKey(card => card.CardId);
+            builder.HasKey(pk => pk.CardId);
             builder.Property(name => name.Name).IsRequired().HasMaxLength(20);
             builder.HasIndex(name => name.Name).IsUnique();
             builder.Property(flag => flag.Flag).IsRequired().HasMaxLength(20);
