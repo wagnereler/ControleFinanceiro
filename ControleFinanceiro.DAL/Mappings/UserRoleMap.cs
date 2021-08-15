@@ -7,9 +7,9 @@ using System.Text;
 
 namespace ControleFinanceiro.DAL.Mappings
 {
-    class UserFunctionMap : IEntityTypeConfiguration<UserFunction>
+    class UserRoleMap : IEntityTypeConfiguration<UserRole>
     {
-        public void Configure(EntityTypeBuilder<UserFunction> builder)
+        public void Configure(EntityTypeBuilder<UserRole> builder)
         {
             //implementa chave primária diretamente pelo Entity
             builder.Property(pk => pk.Id);
@@ -17,14 +17,14 @@ namespace ControleFinanceiro.DAL.Mappings
 
             //gerar dados iniciais
             builder.HasData(
-                new UserFunction
+                new UserRole
                 {
                     Id = Guid.NewGuid().ToString(), //gera um hash code
                     Name = "Administrador",
                     NormalizedName = "ADMINISTRADOR", //Compara valores
                     Description = "Administrador do sistema."
                 },
-                new UserFunction
+                new UserRole
                 {
                     Id = Guid.NewGuid().ToString(), //gera um hash code
                     Name = "Usuario",
