@@ -16,8 +16,8 @@ namespace ControleFinanceiro.DAL.Mappings
             builder.Property(name => name.Name).IsRequired().HasMaxLength(50);
             builder.Property(icon => icon.Icon).IsRequired().HasMaxLength(15);
             builder.HasOne(type => type.Type).WithMany(category => category.Categories).HasForeignKey(type => type.TypeId).IsRequired();
-            builder.HasMany(gain => gain.Gains).WithOne(Category => Category.Category);
-            builder.HasMany(expense => expense.Expenses).WithOne(Category => Category.Category);
+            builder.HasMany(gain => gain.Gains).WithOne(category => category.Category);
+            builder.HasMany(expense => expense.Expenses).WithOne(category => category.Category);
 
             builder.ToTable("Category");
 

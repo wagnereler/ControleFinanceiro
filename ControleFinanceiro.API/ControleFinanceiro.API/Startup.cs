@@ -1,6 +1,9 @@
+using ControleFinanceiro.BLL.Models;
+using ControleFinanceiro.DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,7 +26,12 @@ namespace ControleFinanceiro.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-           
+            //confgiguração da classe de contexto
+            //após passar o parâmetro DBConection o mesmo deve ser criado em appSetingns.json
+            services.AddDbContext<Context>(option => option.UseSqlServer(Configuration.GetConnectionString("DBConection")));
+            services.AddIdentity<User, UserRole>().AddEntityFrameworkStores<Context>();
+            //após as configurações a cima, para rodar o migration entrar em Packege Manager Console e executar
+            //o comando add-migration createDataBase, sendo createDataBase o nome. Deve selecionar o Projeto DAL
 
 
             services.AddCors();
