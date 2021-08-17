@@ -32,13 +32,14 @@ namespace ControleFinanceiro.API
             services.AddIdentity<User, UserRole>().AddEntityFrameworkStores<Context>();
             //após as configurações a cima, para rodar o migration entrar em Packege Manager Console e executar
             //o comando add-migration createDataBase, sendo createDataBase o nome. Deve selecionar o Projeto DAL
+            //após rodar o migration rodar o comando update-database
 
 
             services.AddCors();
 
-            services.AddSpaStaticFiles(diretorio =>
+            services.AddSpaStaticFiles(folder =>
             {
-                diretorio.RootPath = "ControleFinanceiro-UI";
+                folder.RootPath = "ControleFinanceiro-UI";
             });
 
 

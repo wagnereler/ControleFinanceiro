@@ -19,7 +19,7 @@ namespace ControleFinanceiro.DAL.Mappings
             builder.HasIndex(number => number.Number).IsUnique();
             builder.Property(limit => limit.Limit).IsRequired().HasMaxLength(10);
             builder.HasOne(user => user.User).WithMany(card => card.Cards).HasForeignKey(user => user.UserId).IsRequired().OnDelete(DeleteBehavior.NoAction);
-            builder.HasMany(expense => expense.Expenses);
+            builder.HasMany(expense => expense.Expenses).WithOne(card => card.Card);
 
             builder.ToTable("Card");
 

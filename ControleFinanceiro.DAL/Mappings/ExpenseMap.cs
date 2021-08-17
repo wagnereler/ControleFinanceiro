@@ -17,9 +17,9 @@ namespace ControleFinanceiro.DAL.Mappings
             builder.Property(day => day.Day).IsRequired();
             builder.Property(year => year.Year).IsRequired();
             builder.HasOne(card => card.Card).WithMany(expase => expase.Expenses).HasForeignKey(expense => expense.ExpenseId).IsRequired();
-            builder.HasOne(category => category.Category).WithMany(expense => expense.Expenses).HasForeignKey(category => category.Category).IsRequired();
-            builder.HasOne(month => month.Month).WithMany(expense => expense.Expenses).HasForeignKey(month => month.Month).IsRequired();
-            builder.HasOne(user => user.User).WithMany(expense => expense.Expenses).HasForeignKey(user => user.User).IsRequired();
+            builder.HasOne(category => category.Category).WithMany(expense => expense.Expenses).HasForeignKey(category => category.CategoryId).IsRequired();
+            builder.HasOne(month => month.Month).WithMany(expense => expense.Expenses).HasForeignKey(month => month.MonthId).IsRequired();
+            builder.HasOne(user => user.User).WithMany(expense => expense.Expenses).HasForeignKey(user => user.UserId).IsRequired();
 
             builder.ToTable("Expense");
 

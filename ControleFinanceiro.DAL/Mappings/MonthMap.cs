@@ -15,7 +15,7 @@ namespace ControleFinanceiro.DAL.Mappings
             builder.Property(name => name.Name).IsRequired().HasMaxLength(20);
             builder.HasIndex(name => name.Name).IsUnique();
             //relacionamento N x 1
-            builder.HasMany(expense => expense.Expenses).WithOne(month => month.Month);
+            //builder.HasMany(expense => expense.Expenses).WithOne(month => month.Month);
             builder.HasMany(gain => gain.Gains).WithOne(month => month.Month);
 
             builder.HasData(
